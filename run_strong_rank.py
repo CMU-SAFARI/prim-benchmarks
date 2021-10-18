@@ -115,7 +115,7 @@ def main():
     if(len(sys.argv) < 2):
         print ("Usage: python run.py application")
         print ("Applications available: ")
-        for key, value in applications.iteritems():
+        for key, value in applications.items():
             print (key )
         print ("All")
 
@@ -123,7 +123,7 @@ def main():
         cmd = sys.argv[1]
         print ("Application to run is: " + cmd )
         if cmd == "All":
-            for key, value in applications.iteritems():
+            for key, value in applications.items():
                 run(key)
                 os.chdir(rootdir)
         else:
