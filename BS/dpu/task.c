@@ -92,11 +92,12 @@ int main_kernel1() {
     mram_read((__mram_ptr void const *) current_mram_block_addr_A, cache_aux_A, BLOCK_SIZE);
     mram_read((__mram_ptr void const *) (end_mram_block_addr_A - BLOCK_SIZE * sizeof(DTYPE)),   cache_aux_B, BLOCK_SIZE);
 
-    current_mram_block_addr_A = (start_mram_block_addr_A + end_mram_block_addr_A) / 2;
-    current_mram_block_addr_A &= WORD_MASK;
-
     while(1)
     {
+      // Locate the address of the mid mram block
+      current_mram_block_addr_A = (start_mram_block_addr_A + end_mram_block_addr_A) / 2;
+      current_mram_block_addr_A &= WORD_MASK;
+      
       // Boundary check
       if(current_mram_block_addr_A < (start_mram_block_addr_A + BLOCK_SIZE))
       {
@@ -148,16 +149,12 @@ int main_kernel1() {
       if(found == -2)
       {
         end_mram_block_addr_A     = current_mram_block_addr_A;
-        current_mram_block_addr_A = (current_mram_block_addr_A + start_mram_block_addr_A) / 2;
-        current_mram_block_addr_A &= WORD_MASK;
       }
 
       // If found == -1, we need to discard left part of the input vector
       else if (found == -1)
       {
         start_mram_block_addr_A   = current_mram_block_addr_A;
-        current_mram_block_addr_A = (current_mram_block_addr_A + end_mram_block_addr_A) / 2;
-        current_mram_block_addr_A &= WORD_MASK;
       }
     }
   }
