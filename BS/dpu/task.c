@@ -12,6 +12,7 @@
 #include <perfcounter.h>
 #include "common.h"
 
+#define WORD_MASK 0xfffffff8
 __host dpu_arguments_t DPU_INPUT_ARGUMENTS;
 __host dpu_results_t DPU_RESULTS[NR_TASKLETS];
 
@@ -92,6 +93,7 @@ int main_kernel1() {
     mram_read((__mram_ptr void const *) (end_mram_block_addr_A - BLOCK_SIZE * sizeof(DTYPE)),   cache_aux_B, BLOCK_SIZE);
 
     current_mram_block_addr_A = (start_mram_block_addr_A + end_mram_block_addr_A) / 2;
+    current_mram_block_addr_A &= WORD_MASK;
     while(!end)
     {
       // Load cache with current MRAM block
@@ -104,6 +106,7 @@ int main_kernel1() {
       if(found > -1)
       {
         result->found = found + (current_mram_block_addr_A - start_mram_block_addr_aux) / sizeof(DTYPE);
+	printf("Tasklet %d has found %lld\n", me(), result->found + 1);
         break;
       }
 
@@ -112,6 +115,7 @@ int main_kernel1() {
       {
         end_mram_block_addr_A     = current_mram_block_addr_A;
         current_mram_block_addr_A = (current_mram_block_addr_A + start_mram_block_addr_A) / 2;
+        current_mram_block_addr_A &= WORD_MASK;
       }
 
       // If found == -1, we need to discard left part of the input vector
@@ -119,6 +123,7 @@ int main_kernel1() {
       {
         start_mram_block_addr_A   = current_mram_block_addr_A;
         current_mram_block_addr_A = (current_mram_block_addr_A + end_mram_block_addr_A) / 2;
+        current_mram_block_addr_A &= WORD_MASK;
       }
 
       // Start boundary check
@@ -132,7 +137,12 @@ int main_kernel1() {
         {
           end = true;
           result->found = found + (current_mram_block_addr_A - start_mram_block_addr_aux) / sizeof(DTYPE);
+	  printf("Tasklet %d has found %lld\n", me(), result->found + 1);
         }
+	else
+	{
+	  printf("%lld NOT found\n", searching_for);
+	}
       }
 
       // End boundary check
@@ -145,7 +155,12 @@ int main_kernel1() {
         if(found > -1)
         {
           result->found = found + (current_mram_block_addr_A - start_mram_block_addr_aux) / sizeof(DTYPE);
+	  printf("Tasklet %d has found %lld\n", me(), result->found + 1);
         }
+	else
+	{
+	  printf("%lld NOT found\n", searching_for);
+	}
       }
     }
   }
