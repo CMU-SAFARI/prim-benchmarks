@@ -79,8 +79,6 @@ int main_kernel1() {
     mram_read((__mram_ptr void const *) current_mram_block_addr_query, &searching_for, 8);
     current_mram_block_addr_query += 8;
 
-    bool end = false;
-
     // Initialize input vector boundaries
     start_mram_block_addr_A    = (uint32_t) DPU_MRAM_HEAP_POINTER;
     start_mram_block_addr_aux  = start_mram_block_addr_A;
@@ -101,17 +99,15 @@ int main_kernel1() {
       // Boundary check
       if(current_mram_block_addr_A < (start_mram_block_addr_A + BLOCK_SIZE))
       {
-        //end = true;
-	// find (start_mram_block_addr_A, start_mram_block_addr_A + BLOCK_SIZE)
+	// Search inside (start_mram_block_addr_A, start_mram_block_addr_A + BLOCK_SIZE)
         mram_read((__mram_ptr void const *) start_mram_block_addr_A, cache_A, BLOCK_SIZE);
         found = search(cache_A, searching_for, BLOCK_SIZE);
 
         if(found > -1)
         {
           result->found = found + (start_mram_block_addr_A - start_mram_block_addr_aux) / sizeof(DTYPE);
-	  printf("Tasklet %d has found %lld\n", me(), result->found + 1);
         }
-	// find (start_mram_block_addr_A + BLOCK_SIZE, end_mram_block_addr_A)
+	// Search inside (start_mram_block_addr_A + BLOCK_SIZE, end_mram_block_addr_A)
 	else
 	{
 	  size_t remain_bytes_to_search = end_mram_block_addr_A - (start_mram_block_addr_A + BLOCK_SIZE);
@@ -121,7 +117,6 @@ int main_kernel1() {
 	  if(found > -1)
           {
             result->found = found + (start_mram_block_addr_A + BLOCK_SIZE - start_mram_block_addr_aux) / sizeof(DTYPE);
-	    printf("Tasklet %d has found %lld\n", me(), result->found + 1);
           }
 	  else
 	  {
@@ -141,7 +136,6 @@ int main_kernel1() {
       if(found > -1)
       {
         result->found = found + (current_mram_block_addr_A - start_mram_block_addr_aux) / sizeof(DTYPE);
-	printf("Tasklet %d has found %lld\n", me(), result->found + 1);
         break;
       }
 
