@@ -1,14 +1,14 @@
 /*
-* Empty kernel with multiple tasklets
-*
-*/
-#include <stdint.h>
-#include <stdio.h>
+ * Empty kernel with multiple tasklets
+ *
+ */
+#include <alloc.h>
+#include <barrier.h>
 #include <defs.h>
 #include <mram.h>
-#include <alloc.h>
 #include <perfcounter.h>
-#include <barrier.h>
+#include <stdint.h>
+#include <stdio.h>
 
 #include "../support/common.h"
 
@@ -21,9 +21,9 @@ extern int main_kernel1(void);
 
 int (*kernels[nr_kernels])(void) = {main_kernel1};
 
-int main(void) { 
+int main(void) {
     // Kernel
-    return kernels[DPU_INPUT_ARGUMENTS.kernel](); 
+    return kernels[DPU_INPUT_ARGUMENTS.kernel]();
 }
 
 // main_kernel1

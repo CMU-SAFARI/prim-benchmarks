@@ -1,13 +1,13 @@
 #ifndef _COMMON_H_
 #define _COMMON_H_
 
-// Structures used by both the host and the dpu to communicate information 
+// Structures used by both the host and the dpu to communicate information
 typedef struct {
     uint32_t size;
-	enum kernels {
-	    kernel1 = 0,
-	    nr_kernels = 1,
-	} kernel;
+    enum kernels {
+        kernel1 = 0,
+        nr_kernels = 1,
+    } kernel;
 } dpu_arguments_t;
 
 typedef struct {
@@ -36,8 +36,8 @@ typedef struct {
 #define PERF 1 // Use perfcounters?
 #define PRINT 0
 
-#define ANSI_COLOR_RED     "\x1b[31m"
-#define ANSI_COLOR_GREEN   "\x1b[32m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
+#define ANSI_COLOR_RED "\x1b[31m"
+#define ANSI_COLOR_GREEN "\x1b[32m"
+#define ANSI_COLOR_RESET "\x1b[0m"
 
 #endif
