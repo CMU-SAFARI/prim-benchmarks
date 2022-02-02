@@ -9,7 +9,7 @@ PrIM provides a common set of workloads to evaluate the UPMEM PIM architecture w
 The workloads have different characteristics, exhibiting heterogeneity in their memory access patterns, operations and data types, and communication patterns. 
 This repository also contains baseline CPU and GPU implementations of PrIM benchmarks for comparison purposes. 
 
-PrIm also includes a set of microbenchmarks can be used to assess various architecture limits such as compute throughput and memory bandwidth.
+PrIM also includes a set of microbenchmarks can be used to assess various architecture limits such as compute throughput and memory bandwidth.
 
 ## Citation
 
@@ -149,7 +149,7 @@ Several benchmark folders (HST-S, HST-L, RED, SCAN-SSA, SCAN-RSS) contain a scri
 
 ### Microbenchmarks 
 
-Each microbenchmark folder contais a script (`run.sh`) that compiles and runs the microbenchmark for the experiments in the [paper](https://arxiv.org/pdf/2105.03814.pdf):
+Each microbenchmark folder contains a script (`run.sh`) that compiles and runs the microbenchmark for the experiments in the [paper](https://arxiv.org/pdf/2105.03814.pdf):
 
 ```sh
 cd Microbenchmarks/Arithmetic-Throughput
