@@ -14,9 +14,9 @@ int main() {
         C[i] = A[i] + B[i];
     }
 
-    free(A);
-    free(B);
-    free(C);
+    free((void *)A);
+    free((void *)B);
+    free((void *)C);
 
     return 0;
 }
