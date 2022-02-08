@@ -14,7 +14,7 @@ repos:
       - id: yapf
         args: ["--style=.style.yapf", "--parallel", "--in-place"]
   - repo: https://github.com/hadialqattan/pycln
-    rev: v0.0.1-beta.3
+    rev: v1.1.0
     hooks:
       - id: pycln
         args: [--config=pyproject.toml]
@@ -32,9 +32,14 @@ repos:
     rev: v1.3.4
     hooks:
       - id: clang-format
+        exclude: workloads/
       - id: clang-tidy
+        exclude: workloads/
       # - id: oclint
       # - id: uncrustify
       - id: cppcheck
+        exclude: workloads/
       - id: cpplint
+        exclude: workloads/
       - id: include-what-you-use
+        exclude: workloads/
