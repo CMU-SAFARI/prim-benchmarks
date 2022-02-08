@@ -1,5 +1,4 @@
 *.bc
-*.ll
 
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudiocode,python,c++,c,macos,latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudiocode,python,c++,c,macos,latex
