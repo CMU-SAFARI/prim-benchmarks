@@ -1,0 +1,8 @@
+Allocated 1 DPU(s)
+nr_elements	1048576	NR_TASKLETS	14	BL	10
+Load input data
+Run program on DPU(s) 
+Retrieve results
+ADD
+DPU cycles  = 7.33186e+06 cc
+CPU Time (ms): 4.958000	CPU-DPU Time (ms): 43.060000	DPU Kernel Time (ms): 52.467000	DPU-CPU Time (ms): 79.152000	[[32mOK[0m] Outputs are equal
