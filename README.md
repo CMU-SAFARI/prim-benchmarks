@@ -16,6 +16,7 @@ PrIM also includes a set of microbenchmarks can be used to assess various archit
 Please cite the following papers if you find this repository useful.
 
 The short paper version contains the key takeaways of our architecture characterization and workload suitability study:
+
 Juan Gómez-Luna, Izzat El Hajj, Ivan Fernandez, Christina Giannoula, Geraldo F. Oliveira, and Onur Mutlu, "[Benchmarking Memory-centric Computing Systems: Analysis of Real Processing-in-Memory Hardware](https://ieeexplore.ieee.org/abstract/document/9651614)". 2021 12th International Green and Sustainable Computing Conference (IGSC). IEEE, 2021.
 
 Bibtex entry for citation:
@@ -30,6 +31,7 @@ Bibtex entry for citation:
 ```
 
 The long paper version contains all details of our work: key observations, programming recommendations, and key takeaways:
+
 Juan Gómez-Luna, Izzat El Hajj, Ivan Fernandez, Christina Giannoula, Geraldo F. Oliveira, and Onur Mutlu, "[Benchmarking a New Paradigm: Experimental Analysis and Characterization of a Real Processing-in-Memory System](https://ieeexplore.ieee.org/abstract/document/9771457)". IEEE Access (2022).
 
 Juan Gómez-Luna, Izzat El Hajj, Ivan Fernandez, Christina Giannoula, Geraldo F. Oliveira, and Onur Mutlu, "[Benchmarking a New Paradigm: An Experimental Analysis of a Real Processing-in-Memory Architecture](https://arxiv.org/pdf/2105.03814.pdf)". arXiv:2105.03814 [cs.AR], 2021.
@@ -45,6 +47,7 @@ Bibtex entries for citation:
   year={2022},
   publisher={IEEE}
 }
+```
 ```
 @misc{gomezluna2021prim,
   title={{Benchmarking a New Paradigm: An Experimental Analysis of a Real Processing-in-Memory Architecture}}, 
