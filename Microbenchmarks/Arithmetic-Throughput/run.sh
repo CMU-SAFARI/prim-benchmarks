@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p profile
+
 for i in ADD SUB MUL DIV
 do
 	for j in INT32 FLOAT UINT32 INT64 DOUBLE UINT64
