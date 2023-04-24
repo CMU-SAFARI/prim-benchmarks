@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p profile
+
 for i in COARSECOARSE FINEFINE
 do
 	for j in 1 

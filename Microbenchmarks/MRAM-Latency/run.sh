@@ -1,5 +1,7 @@
 #!/bin/bash
 
+mkdir -p profile
+
 for i in 3 4 5 6 7 8 9 10 11
 do
 	for j in 1 
