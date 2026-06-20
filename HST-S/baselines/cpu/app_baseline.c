@@ -99,12 +99,12 @@ void usage() {
         "\n    -w <W>    # of untimed warmup iterations (default=1)"
         "\n    -e <E>    # of timed repetition iterations (default=3)"
         "\n    -t <T>    # of threads (default=8)"
-        "\n    -x <X>    Weak (0) or strong (1) scaling (default=0)"
+        "\n    -x <X>    Weak (0) or strong (1) scaling (default=1)"
         "\n"
         "\nBenchmark-specific options:"
         "\n    -i <I>    input size (default=1536*1024 elements)"
         "\n    -b <B>    histogram size (default=256 bins)"
-        "\n    -f <F>    input image file (default=../input/image_VanHateren.iml)"
+        "\n    -f <F>    input image file (default=../../input/image_VanHateren.iml)"
         "\n");
 }
 
